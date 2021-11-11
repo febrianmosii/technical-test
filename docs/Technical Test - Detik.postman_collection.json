@@ -1,0 +1,920 @@
+{
+	"info": {
+		"_postman_id": "3627b86f-3a9d-4eeb-a33c-1b58ce570ebe",
+		"name": "Technical Test - Detik",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "24ae4723-e913-431e-8121-776a9fa6a71e",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "invoice_id",
+							"value": "INV-101121-000005",
+							"description": "*REQUIRED*",
+							"type": "text"
+						},
+						{
+							"key": "items[0][item_name]",
+							"value": "Martabak Telor",
+							"description": "*REQUIRED*",
+							"type": "text"
+						},
+						{
+							"key": "items[0][amount]",
+							"value": "10",
+							"description": "*REQUIRED*",
+							"type": "text"
+						},
+						{
+							"key": "items[1][item_name]",
+							"value": "Martabak Bangka",
+							"type": "text"
+						},
+						{
+							"key": "items[1][amount]",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "items[2][item_name]",
+							"value": "Permen",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "items[2][amount]",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "payment_type",
+							"value": "virtual_account",
+							"description": "*REQUIRED* = enum ['virtual_account', 'credit_card'] ",
+							"type": "text"
+						},
+						{
+							"key": "customer_name",
+							"value": "Doni",
+							"description": "*REQUIRED*",
+							"type": "text"
+						},
+						{
+							"key": "merchant_id",
+							"value": "2",
+							"description": "*REQUIRED*",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/technical-test/index.php/api/v1/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"technical-test",
+						"index.php",
+						"api",
+						"v1",
+						"transaction"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Example (VA)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "24ae4723-e913-431e-8121-776a9fa6a71e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "invoice_id",
+									"value": "INV-101121-000001",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[0][item_name]",
+									"value": "item name",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[0][amount]",
+									"value": "3",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[1][item_name]",
+									"value": "Sambel Terasi",
+									"type": "text"
+								},
+								{
+									"key": "items[1][amount]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "items[2][item_name]",
+									"value": "Indomie Goreng",
+									"type": "text"
+								},
+								{
+									"key": "items[2][amount]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "payment_type",
+									"value": "virtual_account",
+									"description": "*REQUIRED* = enum ['virtual_account', 'credit_card'] ",
+									"type": "text"
+								},
+								{
+									"key": "customer_name",
+									"value": "Febrian",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "merchant_id",
+									"value": "1",
+									"description": "*REQUIRED*",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/technical-test/index.php/api/v1/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"technical-test",
+								"index.php",
+								"api",
+								"v1",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 11 Nov 2021 08:00:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1l PHP/8.0.10"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.0.10"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "176"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Transaction created successfully\",\n    \"data\": {\n        \"references_id\": \"bd307a3ec329e10a2cff8fb87480823da114f8f4\",\n        \"number_va\": \"10029961183935\",\n        \"status\": \"Pending\"\n    }\n}"
+				},
+				{
+					"name": "Success Example (CC)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "24ae4723-e913-431e-8121-776a9fa6a71e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "invoice_id",
+									"value": "INV-101121-000002",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[0][item_name]",
+									"value": "Sambel Terasi",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[0][amount]",
+									"value": "5",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[1][item_name]",
+									"value": "Kecap ",
+									"type": "text"
+								},
+								{
+									"key": "items[1][amount]",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "items[2][item_name]",
+									"value": "Garam",
+									"type": "text"
+								},
+								{
+									"key": "items[2][amount]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "payment_type",
+									"value": "credit_card",
+									"description": "*REQUIRED* = enum ['virtual_account', 'credit_card'] ",
+									"type": "text"
+								},
+								{
+									"key": "customer_name",
+									"value": "Rian",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "merchant_id",
+									"value": "1",
+									"description": "*REQUIRED*",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/technical-test/index.php/api/v1/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"technical-test",
+								"index.php",
+								"api",
+								"v1",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 11 Nov 2021 08:03:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1l PHP/8.0.10"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.0.10"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "164"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Transaction created successfully\",\n    \"data\": {\n        \"references_id\": \"da4b9237bacccdf19c0760cab7aec4a8359010b0\",\n        \"number_va\": null,\n        \"status\": \"Pending\"\n    }\n}"
+				},
+				{
+					"name": "Duplicate Invoice ID Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "24ae4723-e913-431e-8121-776a9fa6a71e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "invoice_id",
+									"value": "INV-101121-000001",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[0][item_name]",
+									"value": "item name",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[0][amount]",
+									"value": "3",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[1][item_name]",
+									"value": "Sambel Terasi",
+									"type": "text"
+								},
+								{
+									"key": "items[1][amount]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "items[2][item_name]",
+									"value": "Indomie Goreng",
+									"type": "text"
+								},
+								{
+									"key": "items[2][amount]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "payment_type",
+									"value": "virtual_account",
+									"description": "*REQUIRED* = enum ['virtual_account', 'credit_card'] ",
+									"type": "text"
+								},
+								{
+									"key": "customer_name",
+									"value": "Febrian",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "merchant_id",
+									"value": "1",
+									"description": "*REQUIRED*",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/technical-test/index.php/api/v1/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"technical-test",
+								"index.php",
+								"api",
+								"v1",
+								"transaction"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 11 Nov 2021 08:00:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1l PHP/8.0.10"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.0.10"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Invoice ID is already exists!\"\n}"
+				},
+				{
+					"name": "Validation Error Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "24ae4723-e913-431e-8121-776a9fa6a71e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "invoice_id",
+									"value": "INV-101121-000001",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[0][item_name]",
+									"value": "item name",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[0][amount]",
+									"value": "3",
+									"description": "*REQUIRED*",
+									"type": "text"
+								},
+								{
+									"key": "items[1][item_name]",
+									"value": "Sambel Terasi",
+									"type": "text"
+								},
+								{
+									"key": "items[1][amount]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "items[2][item_name]",
+									"value": "Indomie Goreng",
+									"type": "text"
+								},
+								{
+									"key": "items[2][amount]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "payment_type",
+									"value": "virtual_account",
+									"description": "*REQUIRED* = enum ['virtual_account', 'credit_card'] ",
+									"type": "text"
+								},
+								{
+									"key": "customer_name",
+									"value": "Febrian",
+									"description": "*REQUIRED*",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "merchant_id",
+									"value": "1",
+									"description": "*REQUIRED*",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/technical-test/index.php/api/v1/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"technical-test",
+								"index.php",
+								"api",
+								"v1",
+								"transaction"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 11 Nov 2021 08:00:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1l PHP/8.0.10"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.0.10"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "94"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Validation error\",\n    \"data\": [\n        \"Parameter 'customer_name' is required\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Transaction",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "24ae4723-e913-431e-8121-776a9fa6a71e",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/technical-test/index.php/api/v1/transaction?references_id=da4b9237bacccdf19c0760cab7aec4a8359010b0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"technical-test",
+						"index.php",
+						"api",
+						"v1",
+						"transaction"
+					],
+					"query": [
+						{
+							"key": "merchant_id",
+							"value": "1",
+							"description": "*REQUIRED* if references_id is null",
+							"disabled": true
+						},
+						{
+							"key": "references_id",
+							"value": "da4b9237bacccdf19c0760cab7aec4a8359010b0"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "24ae4723-e913-431e-8121-776a9fa6a71e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/technical-test/index.php/api/v1/transaction?merchant_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"technical-test",
+								"index.php",
+								"api",
+								"v1",
+								"transaction"
+							],
+							"query": [
+								{
+									"key": "merchant_id",
+									"value": "1",
+									"description": "*REQUIRED* if references_id is null"
+								},
+								{
+									"key": "references_id",
+									"value": "7b52009b64fd0a2a49e6d8a939753077792b0554",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 11 Nov 2021 08:06:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1l PHP/8.0.10"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.0.10"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "287"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=94"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Success to retrieve data\",\n    \"data\": [\n        {\n            \"references_id\": \"356a192b7913b04c54574d18c28d46e6395428ab\",\n            \"invoice_id\": \"INV-101121-000001\",\n            \"status\": \"Pending\"\n        },\n        {\n            \"references_id\": \"da4b9237bacccdf19c0760cab7aec4a8359010b0\",\n            \"invoice_id\": \"INV-101121-000002\",\n            \"status\": \"Pending\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Validation Error Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "24ae4723-e913-431e-8121-776a9fa6a71e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/technical-test/index.php/api/v1/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"technical-test",
+								"index.php",
+								"api",
+								"v1",
+								"transaction"
+							],
+							"query": [
+								{
+									"key": "merchant_id",
+									"value": "1",
+									"description": "*REQUIRED* if references_id is null",
+									"disabled": true
+								},
+								{
+									"key": "references_id",
+									"value": "7b52009b64fd0a2a49e6d8a939753077792b0554",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 11 Nov 2021 08:06:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1l PHP/8.0.10"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.0.10"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Validation error\",\n    \"data\": [\n        \"Parameter 'merchant_id' is required\"\n    ]\n}"
+				},
+				{
+					"name": "Search by References ID Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "24ae4723-e913-431e-8121-776a9fa6a71e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/technical-test/index.php/api/v1/transaction?references_id=da4b9237bacccdf19c0760cab7aec4a8359010b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"technical-test",
+								"index.php",
+								"api",
+								"v1",
+								"transaction"
+							],
+							"query": [
+								{
+									"key": "merchant_id",
+									"value": "1",
+									"description": "*REQUIRED* if references_id is null",
+									"disabled": true
+								},
+								{
+									"key": "references_id",
+									"value": "da4b9237bacccdf19c0760cab7aec4a8359010b0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 11 Nov 2021 08:07:10 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.48 (Win64) OpenSSL/1.1.1l PHP/8.0.10"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.0.10"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "172"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Success to retrieve data\",\n    \"data\": {\n        \"references_id\": \"da4b9237bacccdf19c0760cab7aec4a8359010b0\",\n        \"invoice_id\": \"INV-101121-000002\",\n        \"status\": \"Pending\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http:://localhost:8000/technical-test-detik/"
+		}
+	]
+}

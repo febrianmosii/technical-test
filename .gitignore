@@ -1,0 +1,28 @@
+# generated OS files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Repositories #
+################
+resources/node_modules/**
+resources/bower_components/**
+public/node_modules/**
+public/bower_components/**
+vendor/**
+
+# Configuration files #
+#######################
+/.project
+nbproject/**
+.idea/**
+.idea/workspace.xml
+Homestead.yaml
+Homestead.json
+.env
+*.log

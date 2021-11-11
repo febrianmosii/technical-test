@@ -1,0 +1,35 @@
+{
+    "name": "Detik App",
+    "description": "MVC app for Detik App",
+    "keywords": ["native","detik","php", "mvc"],
+    "homepage": "https://github.com/febrianmosii",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamad Febrian Mosii",
+            "email": "febrianaries@gmail.com",
+            "homepage": "https://github.com/febrianmosii"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Controller\\": "app/controller/",
+            "Model\\": "app/model/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "composer dumpautoload -o"
+        ],
+        "post-update-cmd": [
+            "composer dumpautoload -o"
+        ]
+    },
+    "require": {
+        "vlucas/phpdotenv": "^2.2",
+        "catfan/Medoo": "^1.4",
+        "usmanhalalit/pixie": "^1.0",
+        "twbs/bootstrap": "^3.3",
+        "phpmailer/phpmailer": "~5.2"
+    }
+}
